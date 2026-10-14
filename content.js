@@ -23,6 +23,8 @@
     host.id = id;
     host.style.setProperty("all", "initial", "important");
     host.style.setProperty("position", "fixed", "important");
+    host.style.setProperty("display", "block", "important");
+    host.style.setProperty("box-sizing", "border-box", "important");
     host.style.setProperty("z-index", "2147483647", "important");
     host.style.setProperty("inset", "0", "important");
     host.style.setProperty("pointer-events", "auto", "important");
