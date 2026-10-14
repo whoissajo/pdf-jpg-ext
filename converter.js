@@ -60,12 +60,10 @@ async function readPdfBytes() {
   }
 
   const pattern = extensionPattern(url.href);
-  const alreadyAllowed = await chrome.permissions.contains({ origins: [pattern] });
-  if (!alreadyAllowed) {
-    const granted = await chrome.permissions.request({ origins: [pattern] });
-    if (!granted) {
-      throw new Error("Website access was not granted. Choose the PDF file from your device instead.");
-    }
+  // Request permissions directly from the convert-button click's user gesture.
+  const granted = await chrome.permissions.request({ origins: [pattern] });
+  if (!granted) {
+    throw new Error("Website access was not granted. Choose the PDF file from your device instead.");
   }
 
   setStatus("Downloading PDF", "Fetching the file directly from its website…", 2);
