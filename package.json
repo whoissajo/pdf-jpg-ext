@@ -1,0 +1,19 @@
+{
+  "name": "pdf-jpg-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Chrome/Chromium extension to export PDF pages and print-ready web pages to JPG.",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs",
+    "clean": "node -e \"import('node:fs/promises').then(fs => fs.rm('dist', { recursive: true, force: true }))\""
+  },
+  "dependencies": {
+    "html2canvas": "1.4.1",
+    "jszip": "3.10.1",
+    "pdfjs-dist": "6.4.299"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
