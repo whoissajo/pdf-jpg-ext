@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF to JPG</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img">
+          <path d="M8 3.5h10l6 6V28H8a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M18 3.5v6h6M10 16h12M10 20h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M20.5 22.5 24 26l3.5-3.5" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>PDF to JPG</h1>
+        <p>Print differently. Save beautifully.</p>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">PDF CONVERTER</div>
+      <h2>Every page, as an image.</h2>
+      <p>Convert a PDF into crisp JPG pages, right on this device.</p>
+      <button class="button button-primary" id="convertPdf">
+        <span aria-hidden="true">↗</span> Convert current tab / PDF
+      </button>
+      <p class="subtle">You can also paste a PDF link or choose a local file.</p>
+    </section>
+
+    <section class="feature-row">
+      <div class="feature-icon">▧</div>
+      <div class="feature-copy">
+        <h3>Save this webpage as JPG</h3>
+        <p>Capture a page as a high-quality image.</p>
+      </div>
+      <button class="button button-secondary" id="savePage">Save JPG</button>
+    </section>
+
+    <section class="feature-row feature-row-stack">
+      <div class="feature-icon">⌁</div>
+      <div class="feature-copy">
+        <h3>Print button choice</h3>
+        <p>When a site calls its print dialog, offer JPG or normal printing.</p>
+      </div>
+      <button class="button button-secondary button-wide" id="enableSite">Enable on this website</button>
+      <button class="button button-quiet button-wide" id="enableAll">Enable on all websites</button>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <footer>Private by design · No uploads · JPG output</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
