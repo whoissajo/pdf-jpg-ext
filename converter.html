@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convert PDF to JPG</title>
+  <link rel="stylesheet" href="converter.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="popup.html" aria-label="PDF to JPG home">
+      <span class="brand-logo">J</span>
+      <span><strong>PDF to JPG</strong><small>Browser-local converter</small></span>
+    </a>
+    <span class="privacy"><span class="privacy-dot"></span> Your files stay on your device</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow">PDF CONVERSION WORKSPACE</div>
+      <h1>Turn every PDF page<br><span>into a JPG.</span></h1>
+      <p>Convert a PDF from a link or choose a file from your device. Export each page as a separate image, or bundle the JPG pages into a ZIP.</p>
+      <div class="value-points">
+        <span>✓ High-quality images</span>
+        <span>✓ Multi-page support</span>
+        <span>✓ No server uploads</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Choose a PDF</h2>
+          <p>Use a direct PDF URL or select a local file.</p>
+        </div>
+        <span class="step">01</span>
+      </div>
+
+      <label class="field-label" for="pdfUrl">PDF web address</label>
+      <div class="url-row">
+        <input id="pdfUrl" type="url" inputmode="url" placeholder="https://example.com/document.pdf" autocomplete="url">
+        <button id="loadUrl" class="button button-secondary" type="button">Use link</button>
+      </div>
+      <p class="field-help">If the PDF requires access, open the link in your browser first. Some sites block direct file access or downloads.</p>
+
+      <div class="separator"><span>OR</span></div>
+
+      <label class="drop-zone" for="pdfFile" id="dropZone">
+        <span class="file-icon" aria-hidden="true">↑</span>
+        <strong>Choose a PDF from your device</strong>
+        <span id="fileLabel">Browse files · PDF only</span>
+      </label>
+      <input id="pdfFile" type="file" accept="application/pdf,.pdf" hidden>
+
+      <div class="panel-heading options-heading">
+        <div>
+          <h2>Export options</h2>
+          <p>Pick how you want to save your JPGs.</p>
+        </div>
+        <span class="step">02</span>
+      </div>
+
+      <label class="field-label" for="outputMode">Download format</label>
+      <select id="outputMode">
+        <option value="individual">Separate JPG files — one per page</option>
+        <option value="zip">One ZIP containing all JPG pages</option>
+        <option value="both">Separate JPG files and a ZIP</option>
+      </select>
+      <label class="check-row">
+        <input id="highQuality" type="checkbox" checked>
+        <span><strong>High quality</strong><small>JPG quality 94% · resolution up to 2×</small></span>
+      </label>
+
+      <button id="convertButton" class="button button-primary convert-button" type="button">
+        <span aria-hidden="true">✦</span> Convert &amp; download JPGs
+      </button>
+      <p class="local-note">Nothing is uploaded. PDFs are processed locally in this browser tab.</p>
+
+      <div id="progressPanel" class="progress-panel" hidden>
+        <div class="progress-top">
+          <strong id="statusTitle">Preparing PDF…</strong>
+          <span id="progressLabel">0%</span>
+        </div>
+        <div class="progress-track"><div id="progressFill"></div></div>
+        <p id="statusDetail" role="status" aria-live="polite">Reading file</p>
+      </div>
+      <div id="errorBox" class="error-box" role="alert" hidden></div>
+    </section>
+
+    <section class="tip">
+      <div class="tip-icon">i</div>
+      <div>
+        <strong>Opened a PDF in the browser's built-in viewer?</strong>
+        <p>Click the extension icon and choose “Convert current tab / PDF”. The browser's native Save/Print menus cannot be changed by extensions, so this workspace provides its own JPG export action.</p>
+      </div>
+    </section>
+  </main>
+  <footer>PDF to JPG · Private, local conversion</footer>
+  <script src="vendor/jszip.min.js"></script>
+  <script type="module" src="converter.js"></script>
+</body>
+</html>
