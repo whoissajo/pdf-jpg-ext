@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "PDF to JPG — Print & Convert",
+  "version": "1.0.0",
+  "description": "Save PDF pages as JPG images and choose JPG when a website opens its print dialog. Everything runs locally in your browser.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PDF to JPG",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
